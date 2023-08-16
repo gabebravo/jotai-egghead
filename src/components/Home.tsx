@@ -41,6 +41,17 @@ const Home = () => {
           useResetAtom to reset the same DrawDotsState in multiple places
         </p>
       </div>
+      <div>
+        <h5>
+          <Link href={`/draw-multi`}>
+            <a css={linkStyle}>Draw Multi Lines</a>
+          </Link>
+        </h5>
+        <p>
+          This version of the dawing app uses multi lines. Note the addShapeAtom
+          in SvgShapes.
+        </p>
+      </div>
     </div>
   );
 };

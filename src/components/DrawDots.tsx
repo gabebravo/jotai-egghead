@@ -1,9 +1,10 @@
 import { useAtom } from 'jotai';
-import { Point, dotsAtom } from '../state/DrawDotsState';
+import { dotsAtom } from '../state/DrawDotsState';
 import { useResetAtom } from 'jotai/utils';
 import { useEffect } from 'react';
 import SvgDots from './SvgDots';
 import Stats from './Stats';
+import { Point } from '../types';
 
 const SvgRoot = () => {
   const [, setDots] = useAtom(dotsAtom);

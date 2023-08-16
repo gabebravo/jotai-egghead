@@ -3,6 +3,7 @@ import Counter from './Counter';
 import Home from './Home';
 import DrawDots from './DrawDots';
 import DotsOpt from './DotsOpt';
+import DrawMulti from '../multi-lines/MultiLines';
 
 const AllRoutes = () => (
   <Switch>
@@ -17,6 +18,9 @@ const AllRoutes = () => (
     </Route>
     <Route path="/draw-opt">
       <DotsOpt />
+    </Route>
+    <Route path="/draw-multi">
+      <DrawMulti />
     </Route>
   </Switch>
 );

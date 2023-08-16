@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { atom, useAtomValue, useSetAtom } from 'jotai';
-import { dotsAtom, Point } from '../state/DrawDotsState';
+import { dotsAtom } from '../state/DrawDotsState';
 import { useResetAtom, atomWithReset } from 'jotai/utils';
 import SvgDots from '../components/SvgDots';
 import Stats from './Stats';
+import { Point } from '../types';
 
 const drawingAtomState = atom(false);
 const commitCountState = atomWithReset(0);

@@ -1,6 +1,6 @@
 import { atomWithReset } from 'jotai/utils';
 import { atom } from 'jotai';
-export type Point = [number, number];
+import { Point } from '../types';
 
 // 2d coordinates of dots position
 export const dotsAtom = atomWithReset<Point[]>([]);

@@ -1,5 +1,7 @@
 import { useAtom } from 'jotai';
 import { Point, dotsAtom, numberOfDotsAtom } from '../state/DrawDotsState';
+import { useResetAtom } from 'jotai/utils';
+import React from 'react';
 
 const SvgDots = () => {
   const [dots] = useAtom(dotsAtom);
@@ -39,11 +41,20 @@ const Stats = () => {
   );
 };
 
-const DrawDots = () => (
-  <>
-    <SvgRoot />
-    <Stats />
-  </>
-);
+const DrawDots = () => {
+  const resetDots = useResetAtom(dotsAtom);
+
+  // @ts-ignore
+  React.useEffect(() => {
+    return () => resetDots();
+  }, []);
+
+  return (
+    <>
+      <SvgRoot />
+      <Stats />
+    </>
+  );
+};
 
 export default DrawDots;

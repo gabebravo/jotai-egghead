@@ -2,6 +2,7 @@ import { Switch, Route } from 'wouter';
 import Counter from './Counter';
 import Home from './Home';
 import DrawDots from './DrawDots';
+import DotsOpt from './DotsOpt';
 
 const AllRoutes = () => (
   <Switch>
@@ -13,6 +14,9 @@ const AllRoutes = () => (
     </Route>
     <Route path="/draw-dots">
       <DrawDots />
+    </Route>
+    <Route path="/draw-opt">
+      <DotsOpt />
     </Route>
   </Switch>
 );

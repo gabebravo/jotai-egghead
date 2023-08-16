@@ -1,23 +1,25 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { atom, useAtomValue, useSetAtom } from 'jotai';
 import { dotsAtom, numberOfDotsAtom, Point } from '../state/DrawDotsState';
-import { useResetAtom } from 'jotai/utils';
+import { useResetAtom, atomWithReset } from 'jotai/utils';
 
-const drawingAtom = atom(false);
+const drawingAtomState = atom(false);
+const commitCountState = atomWithReset(0);
 
 // write-only atom
 const handleMouseDownAtom = atom(null, (get, set) => {
-  set(drawingAtom, true);
+  set(drawingAtomState, true);
 });
 
 // write-only atom
 const handleMouseUpAtom = atom(null, (get, set) => {
-  set(drawingAtom, false);
+  set(drawingAtomState, false);
+  set(commitCountState, (prev) => prev + 1);
 });
 
 // write-only atom
 const handleMouseMoveAtom = atom(null, (get, set, update: Point) => {
-  if (get(drawingAtom)) {
+  if (get(drawingAtomState)) {
     // update is the new value from the atom
     set(dotsAtom, (prev) => [...prev, update]);
   }
@@ -34,18 +36,12 @@ const SvgDots = () => {
   );
 };
 
-const useCommitCount = () => {
-  const commitCountRef = useRef(0);
-  useEffect(() => {
-    commitCountRef.current += 1;
-  });
-  return commitCountRef.current;
-};
-
 const SvgRoot = () => {
   const handleMouseUp = useSetAtom(handleMouseUpAtom);
   const handleMouseDown = useSetAtom(handleMouseDownAtom);
   const handleMouseMove = useSetAtom(handleMouseMoveAtom);
+  const commitCount = useAtomValue(commitCountState);
+
   return (
     <svg
       width="200"
@@ -59,7 +55,7 @@ const SvgRoot = () => {
     >
       <rect width="200" height="200" fill="#eee" />
       <text x="3" y="12" font-size="12px">
-        Commits: {useCommitCount()}
+        Commits: {commitCount}
       </text>
       <SvgDots />
     </svg>
@@ -70,7 +66,7 @@ const Stats = () => {
   const numberOfDots = useAtomValue(numberOfDotsAtom);
   return (
     <ul>
-      <li>Dots: {!drawingAtom && numberOfDots}</li>
+      <li>Dots: {!drawingAtomState && numberOfDots}</li>
     </ul>
   );
 };

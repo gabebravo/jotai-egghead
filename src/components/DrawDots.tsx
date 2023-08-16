@@ -1,18 +1,9 @@
 import { useAtom } from 'jotai';
-import { Point, dotsAtom, numberOfDotsAtom } from '../state/DrawDotsState';
+import { Point, dotsAtom } from '../state/DrawDotsState';
 import { useResetAtom } from 'jotai/utils';
-import React from 'react';
-
-const SvgDots = () => {
-  const [dots] = useAtom(dotsAtom);
-  return (
-    <g>
-      {dots.map(([x, y]) => (
-        <circle cx={x} cy={y} r="2" fill="#aaa" />
-      ))}
-    </g>
-  );
-};
+import { useEffect } from 'react';
+import SvgDots from './SvgDots';
+import Stats from './Stats';
 
 const SvgRoot = () => {
   const [, setDots] = useAtom(dotsAtom);
@@ -32,20 +23,11 @@ const SvgRoot = () => {
   );
 };
 
-const Stats = () => {
-  const [numberOfDots] = useAtom(numberOfDotsAtom);
-  return (
-    <ul>
-      <li>Dots: {numberOfDots}</li>
-    </ul>
-  );
-};
-
 const DrawDots = () => {
   const resetDots = useResetAtom(dotsAtom);
 
   // @ts-ignore
-  React.useEffect(() => {
+  useEffect(() => {
     return () => resetDots();
   }, []);
 

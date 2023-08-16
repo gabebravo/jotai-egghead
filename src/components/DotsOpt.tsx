@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { atom, useAtomValue, useSetAtom } from 'jotai';
-import { dotsAtom, numberOfDotsAtom, Point } from '../state/DrawDotsState';
+import { dotsAtom, Point } from '../state/DrawDotsState';
 import { useResetAtom, atomWithReset } from 'jotai/utils';
+import SvgDots from '../components/SvgDots';
+import Stats from './Stats';
 
 const drawingAtomState = atom(false);
 const commitCountState = atomWithReset(0);
@@ -24,17 +26,6 @@ const handleMouseMoveAtom = atom(null, (get, set, update: Point) => {
     set(dotsAtom, (prev) => [...prev, update]);
   }
 });
-
-const SvgDots = () => {
-  const dots = useAtomValue(dotsAtom);
-  return (
-    <g>
-      {dots.map(([x, y]) => (
-        <circle cx={x} cy={y} r="2" fill="#aaa" />
-      ))}
-    </g>
-  );
-};
 
 const SvgRoot = () => {
   const handleMouseUp = useSetAtom(handleMouseUpAtom);
@@ -59,16 +50,6 @@ const SvgRoot = () => {
       </text>
       <SvgDots />
     </svg>
-  );
-};
-
-const Stats = () => {
-  const numberOfDots = useAtomValue(numberOfDotsAtom);
-
-  return (
-    <ul>
-      <li>Dots: {numberOfDots}</li>
-    </ul>
   );
 };
 

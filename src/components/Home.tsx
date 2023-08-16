@@ -12,7 +12,6 @@ const Home = () => {
       <div>
         <h1>Jotai Egghead</h1>
       </div>
-      <h3>Pages:</h3>
       <div>
         <h5>
           <Link href={`/counter`}>

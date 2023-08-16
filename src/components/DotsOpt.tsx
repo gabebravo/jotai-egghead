@@ -64,9 +64,10 @@ const SvgRoot = () => {
 
 const Stats = () => {
   const numberOfDots = useAtomValue(numberOfDotsAtom);
+
   return (
     <ul>
-      <li>Dots: {!drawingAtomState && numberOfDots}</li>
+      <li>Dots: {numberOfDots}</li>
     </ul>
   );
 };

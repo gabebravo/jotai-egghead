@@ -46,7 +46,7 @@ const SvgRoot = () => {
       }}
     >
       <rect width="200" height="200" fill="#eee" />
-      <text x="3" y="12" font-size="12px">
+      <text x="3" y="12" fontSize="12px">
         Commits: {commitCount}
       </text>
       <SvgDots />

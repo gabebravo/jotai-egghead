@@ -12,7 +12,7 @@ const handleMouseDownAtom = atom(null, (get, set) => {
 
 const handleMouseUpAtom = atom(null, (get, set) => {
   set(drawingAtom, false);
-  set(commitDotsAtom, null);
+  set(commitDotsAtom);
 });
 
 const handleMouseMoveAtom = atom(null, (get, set, update: Point) => {

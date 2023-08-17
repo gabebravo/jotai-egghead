@@ -52,6 +52,17 @@ const Home = () => {
           in SvgShapes.
         </p>
       </div>
+      <div>
+        <h5>
+          <Link href={`/selectable-lines`}>
+            <a css={linkStyle}>Selectable Lines</a>
+          </Link>
+        </h5>
+        <p>
+          Makes use of setters and selectors that contain atoms instead of just
+          values.
+        </p>
+      </div>
     </div>
   );
 };

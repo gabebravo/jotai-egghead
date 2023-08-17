@@ -4,6 +4,7 @@ import Home from './Home';
 import DrawDots from './DrawDots';
 import DotsOpt from './DotsOpt';
 import DrawMulti from '../multi-lines/MultiLines';
+import SelectableLines from '../selectable-lines/SelectableLines';
 
 const AllRoutes = () => (
   <Switch>
@@ -21,6 +22,9 @@ const AllRoutes = () => (
     </Route>
     <Route path="/draw-multi">
       <DrawMulti />
+    </Route>
+    <Route path="/selectable-lines">
+      <SelectableLines />
     </Route>
   </Switch>
 );

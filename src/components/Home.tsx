@@ -63,6 +63,17 @@ const Home = () => {
           values.
         </p>
       </div>
+      <div>
+        <h5>
+          <Link href={`/color-lines`}>
+            <a css={linkStyle}>Color Lines</a>
+          </Link>
+        </h5>
+        <p>
+          Update Atom value from a different React component to chnage color of
+          lines.
+        </p>
+      </div>
     </div>
   );
 };

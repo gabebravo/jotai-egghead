@@ -74,6 +74,16 @@ const Home = () => {
           lines.
         </p>
       </div>
+      <div>
+        <h5>
+          <Link href={`/delete-lines`}>
+            <a css={linkStyle}>Delete Lines</a>
+          </Link>
+        </h5>
+        <p>
+          Delete a selected line by filtering out a selectedShape from the array of values.
+        </p>
+      </div>
     </div>
   );
 };

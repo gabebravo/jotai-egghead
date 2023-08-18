@@ -1,11 +1,11 @@
 import { Controls } from './Controls';
 import { SvgRoot } from './SvgRoot';
 
-const DeleteLines = () => (
+const UndoLines = () => (
   <>
     <SvgRoot />
     <Controls />
   </>
 );
 
-export default DeleteLines;
+export default UndoLines;

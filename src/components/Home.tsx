@@ -81,8 +81,17 @@ const Home = () => {
           </Link>
         </h5>
         <p>
-          Delete a selected line by filtering out a selectedShape from the array of values.
+          Delete a selected line by filtering out a selectedShape from the array
+          of values.
         </p>
+      </div>
+      <div>
+        <h5>
+          <Link href={`/undo-lines`}>
+            <a css={linkStyle}>Undo Lines</a>
+          </Link>
+        </h5>
+        <p>Undo lines by removing them from the history collected over time.</p>
       </div>
     </div>
   );

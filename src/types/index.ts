@@ -6,3 +6,5 @@ export type ShapeAtom = PrimitiveAtom<{
   path: string;
   color?: string;
 }>;
+
+export type ShapeAtomPrimative = PrimitiveAtom<ShapeAtom>;

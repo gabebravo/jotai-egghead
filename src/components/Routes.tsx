@@ -8,6 +8,7 @@ import SelectableLines from '../selectable-lines/SelectableLines';
 import ColorLines from '../color-lines/ColorLines';
 import DeleteLines from '../delete-lines/ColorLines';
 import UndoLines from '../undo-lines/UndoLines';
+import JotaiProvider from '../jotai-provider/JotaiProvider';
 
 const AllRoutes = () => (
   <Switch>
@@ -37,6 +38,9 @@ const AllRoutes = () => (
     </Route>
     <Route path="/undo-lines">
       <UndoLines />
+    </Route>
+    <Route path="/jotai-provider">
+      <JotaiProvider />
     </Route>
   </Switch>
 );

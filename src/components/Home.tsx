@@ -49,7 +49,7 @@ const Home = () => {
         </h5>
         <p>
           This version of the dawing app uses multi lines. Note the addShapeAtom
-          in SvgShapes.
+          in SvgShapes
         </p>
       </div>
       <div>
@@ -60,7 +60,7 @@ const Home = () => {
         </h5>
         <p>
           Makes use of setters and selectors that contain atoms instead of just
-          values.
+          values
         </p>
       </div>
       <div>
@@ -91,7 +91,15 @@ const Home = () => {
             <a css={linkStyle}>Undo Lines</a>
           </Link>
         </h5>
-        <p>Undo lines by removing them from the history collected over time.</p>
+        <p>Undo lines by removing them from the history collected over time</p>
+      </div>
+      <div>
+        <h5>
+          <Link href={`/jotai-provider`}>
+            <a css={linkStyle}>Jotai Provider</a>
+          </Link>
+        </h5>
+        <p>Jotai Provider is used to isolate state in an application</p>
       </div>
     </div>
   );
